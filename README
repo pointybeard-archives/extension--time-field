@@ -1,0 +1,30 @@
+
+Time Field
+------------------------------------
+
+Version: 1.4
+Author: Symphony Team (team@symphony21.com)
+Build Date: 15th April 2008
+Requirements: Symphony Beta revision 5 or greater.
+
+
+[INSTALLATION]
+
+1. Upload the 'timefield' folder in this archive to your Symphony 'extensions' folder.
+
+2. Enable it by selecting the "Field: Time", choose Enable from the with-selected menu, then click Apply.
+
+3. You can now add the "Time" field to your sections.
+
+
+[UPDATE]
+
+ - Run the follow queries and change XXX to be the ID's of any time field you have in the system:
+
+		ALTER TABLE  `tbl_entries_data_XXX` CHANGE  `value`  `value` VARCHAR( 20 ) NULL DEFAULT NULL;
+		ALTER TABLE  `tbl_entries_data_XXX` ADD  `seconds` BIGINT( 20 ) UNSIGNED NOT NULL ;
+		ALTER TABLE  `tbl_entries_data_XXX` ADD INDEX (  `seconds` ) ;
+
+[USAGE]
+
+- Filtering supports ranges via a {from} to {to} logic. E.G. 01:12:43 to 31:09:33.
